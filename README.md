@@ -4,3 +4,7 @@ This proof of concept was created for the Redlight fortnox integration since I e
 
 This code makes a smarter approach, spliting the products in chunks and lets the client(browser) to handle sync so the server won't be pressured and no server configurations will be needed.
 
+
+## Dependecies
+
+Redlight Fortnox plugin

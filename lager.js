@@ -58,11 +58,11 @@
         { length: Math.ceil(syncData.length / this.chunkSize) },
         (_, i) => syncData.slice(i * this.chunkSize, (i + 1) * this.chunkSize)
       );
-
+      let i;
       for (const chunk of chunkedArray) {
         const responseData = await this.fetchData('sync_fortknox_lager_chunks', 'update', `chunk=${chunk}`);
         if (responseData !== null) {
-          this.message.value += `${(i * this.chunkSize) + 5} klara av ${responseData.length}\n${responseData.message}`;
+          this.message.value += `${(i * this.chunkSize) + 5} klara av ${syncData.length}\n${responseData.message}`;
           this.message.scrollTo({
             top: this.message.scrollHeight,
             behavior: 'smooth',
@@ -72,6 +72,7 @@
             this.toggleLoading();
           }
         }
+        i++;
       }
     }else{
       this.toggleLoading();
